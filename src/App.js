@@ -24,6 +24,12 @@ export default class App extends React.Component {
     this.cube = new Cube()
     this.scene.add(this.cube.getMesh())
     this.animate(performance.now())
+
+    window.addEventListener('resize', () => {
+      this.camera.aspect = window.innerWidth / window.innerHeight
+      this.camera.updateProjectionMatrix()
+      this.renderer.setSize(window.innerWidth, window.innerHeight)
+    }, false)
   }
 
   render() {
