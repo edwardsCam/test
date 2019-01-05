@@ -23,7 +23,7 @@ export default class App extends React.Component {
 
     this.cube = new Cube()
     this.scene.add(this.cube.getMesh())
-    this.animate()
+    this.animate(performance.now())
   }
 
   render() {
@@ -32,9 +32,9 @@ export default class App extends React.Component {
     )
   }
 
-  animate() {
-    this.cube.animate()
+  animate = nowInMs => {
+    this.cube.animate(nowInMs)
     this.renderer.render(this.scene, this.camera);
-    requestAnimationFrame(() => this.animate());
+    requestAnimationFrame(this.animate);
   }
 }

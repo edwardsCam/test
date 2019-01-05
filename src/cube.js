@@ -9,7 +9,8 @@ export default class Cube {
       new MeshBasicMaterial({ color: 0x00ff00 })
     )
 
-    this.animate = () => {
+    this.animate = nowInMs => {
+      console.info(nowInMs / 1000)
       mesh.rotation.y += 0.01
       mesh.rotation.x += 0.005
     }
